@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   # Returns a random token.
   def User.new_token
-    SecureRandom.urlsafe_base64
+   SecureRandom.urlsafe_base64
   end
 	# Remembers a user in the database for use in persistent sessions.
   def remember
