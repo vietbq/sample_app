@@ -5,13 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
+User.create!(name:  "VietBui",
+             email: "buiquocviet_vbhp@yahoo.com",
+             password:              "12345678",
+             password_confirmation: "12345678",
              admin:     true,
              activated: true,
-             activation_at: Time.zone.now)
+             activated_at: Time.zone.now)
 
 99.times do |n|
   name  = Faker::Name.name
@@ -22,5 +22,11 @@ User.create!(name:  "Example User",
               password:              password,
               password_confirmation: password,
               activated: true,
-              activation_at: Time.zone.now)
+              activated_at: Time.zone.now)
+end
+
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.microposts.create!(content: content) }
 end
